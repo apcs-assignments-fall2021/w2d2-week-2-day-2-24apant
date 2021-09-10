@@ -10,7 +10,7 @@ public class MyMain {
         Scanner scan = new Scanner(System.in);
         // REPLACE THIS WITH YOUR CODE
 
-        return -1.0;
+        return scan.nextDouble();
     }
 
     // Takes a double money as input and returns the number of quarters that we
@@ -18,15 +18,26 @@ public class MyMain {
     // You should use a while loop!
     public static int numQuarters(double money) {
         // REPLACE THIS WITH YOUR CODE
-        return 0;
+        int quartercount = 0;
+        while(money>=0.25){
+            money -= 0.25;
+            quartercount ++;
+        }
+        return quartercount;
     }
 
     // Takes a double money as input and returns the number of dimes that we
     // can return in change
     // You should use a while loop!
     public static int numDimes(double money) {
-        // REPLACE THIS WITH YOUR CODE
-        return 0;
+        // REPLACE THIS WITH YOUR CO    DE
+        int dimecount = 0;
+        while(money>=0.1){
+            money -= 0.1;
+            dimecount ++;
+        }
+        return dimecount;
+
     }
 
     // Takes a double money as input and returns the number of nickels that we
@@ -34,15 +45,27 @@ public class MyMain {
     // You should use a while loop!
     public static int numNickels(double money) {
         // REPLACE THIS WITH YOUR CODE
-        return 0;
+        int nickelcount = 0;
+        while(money>=0.05||Math.abs(money-0.05) < 3.1918912e-16){
+            money -= 0.05;
+            nickelcount ++;
+            System.out.println(money);
+        }
+        return nickelcount;
     }
 
     // Takes a double money as input and returns the number of pennies that we
     // can return in change
     // You should use a while loop!
+
     public static int numPennies(double money) {
         // REPLACE THIS WITH YOUR CODE
-        return 0;
+        int pennycount = 0;
+        while(Math.abs(money-0.01) > 0.0001){
+            money -= 0.01;
+            pennycount++;
+        }
+        return pennycount;
     }
 
     public static void main(String[] args) {
@@ -50,6 +73,10 @@ public class MyMain {
 
         // You should test inputDouble yourself!
         double d = inputDouble();
+        System.out.println(d + " in quarters would be: " + numQuarters(d) + " quarters."); //
+        System.out.println(d +" in dimes would be: " + numDimes(d) + " dimes."); //
+        System.out.println(d +" in nickels would be: " + numNickels(d) + " nickels."); //
+        System.out.println(d +" in pennies would be: " + numPennies(d) + " pennies."); //
 
         // Some code to test numQuarters
         System.out.println("\nnumQuarters tests:");
